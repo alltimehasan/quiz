@@ -54,14 +54,27 @@ section .option_list .option{
     border: 1px solid #84c5fe;
     border-radius: 5px;
     padding: 8px 15px;
+    padding-left: 5px;
     font-size: 17px;
     font-weight: 400;
     margin-bottom: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: start;
+    position: relative;
+}
+
+/* section .option_list .option .opt_ans{
+    flex-grow: inherit;
+    background-color: #007bff;
+} */
+
+section .option_list .option .opt_simble{
+    font-weight: bold;
+    margin-right: 10px;
+    border-radius: 100%;
 }
 
 section .option_list .option:last-child{
@@ -91,36 +104,56 @@ section .option_list .option.disabled{
 }
 
 section .option_list .option .icon{
-    height: 26px;
-    width: 26px;
-    border: 2px solid transparent;
     border-radius: 50%;
-    text-align: center;
-    font-size: 13px;
+    font-size: 15px;
     pointer-events: none;
     transition: all 0.3s ease;
     line-height: 24px;
 }
 .option_list .option .icon.tick{
     color: #23903c;
-    border-color: #23903c;
     background: #d4edda;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
 }
 
 .option_list .option .icon.cross{
     color: #a42834;
-    background: #f8d7da;
-    border-color: #a42834;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);    
+}
+
+/** Correct ans Explanation box **/
+.correct_ans_title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 9px;
+}
+
+.correct_ans_exp{
+    text-align: center;
+    margin-top: 25px;
+    font-size: 17px;
 }
 
 /*** Quiz box action ***/
 .quiz_action{
-    height: 60px;
+    /* height: 60px; */
     padding: 0 30px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid lightgrey;
+    justify-content: center;
+    /* border-top: 1px solid lightgrey; */
+}
+
+.quiz_action .total_que{
+    margin-bottom: 5px;
 }
 
 .quiz_action .total_que span{
@@ -140,6 +173,7 @@ section .option_list .option .icon{
 .quiz_action button{
     height: 40px;
     padding: 0 13px;
+    margin-bottom: 20px;
     font-size: 18px;
     font-weight: 400;
     cursor: pointer;
@@ -147,8 +181,8 @@ section .option_list .option .icon{
     outline: none;
     color: #fff;
     border-radius: 5px;
-    background: #007bff;
-    border: 1px solid #007bff;
+    background: #dc3545;
+    border: 1px solid #dc3545;
     line-height: 10px;
     display: none;
     pointer-events: none;
@@ -157,7 +191,7 @@ section .option_list .option .icon{
 }
 
 .quiz_action button:hover{
-    background: #0263ca;
+    background: #dc3545;
 }
 
 .quiz_action button.show{
